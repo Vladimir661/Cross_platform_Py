@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: rgb(186, 182, 182);
+        }
+        h1 {
+            color: blue;
+        }
+        em {
+            color: green;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project Title</h1>
+    <p><em> Zozulia Volodymyr , Group: IPZ-21007b</em></p>
+    
+    <h2>Programmers</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        {% for programmer in programmers %}
+        <tr>
+            <td>{{ programmer.name }}</td>
+            <td>{{ programmer.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Errors</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Programmer</th>
+            <th>Created At</th>
+        </tr>
+        {% for error in errors %}
+        <tr>
+            <td>{{ error.description }}</td>
+            <td>{{ error.programmer.name }}</td>
+            <td>{{ error.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Fixes</h2>
+    <table>
+        <tr>
+            <th>Error Description</th>
+            <th>Fix Description</th>
+            <th>Fixed At</th>
+        </tr>
+        {% for fix in fixes %}
+        <tr>
+            <td>{{ fix.error.description }}</td>
+            <td>{{ fix.description }}</td>
+            <td>{{ fix.fixed_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
